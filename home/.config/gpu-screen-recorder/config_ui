@@ -50,7 +50,7 @@ record.start_stop_hotkey 88 16
 record.start_stop_region_hotkey 0 0
 record.start_stop_window_hotkey 0 0
 replay.container mp4
-replay.record_options.advanced_view true
+replay.record_options.advanced_view false
 replay.record_options.application_audio_invert false
 replay.record_options.audio_codec opus
 replay.record_options.audio_track_item false [add_audio_track]
@@ -92,7 +92,7 @@ replay.save_directory /home/kagamimochi//Pictures
 replay.save_hotkey 87 16
 replay.save_video_in_game_folder false
 replay.start_stop_hotkey 0 0
-replay.time 60
+replay.time 600
 replay.turn_on_replay_automatically_mode turn_on_at_system_startup
 screenshot.change_image_resolution false
 screenshot.custom_script 

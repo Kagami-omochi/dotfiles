@@ -119,6 +119,7 @@ sunshine
 unityhub
 lutris
 nwg-look
+nwg-displays
 qt5-wayland
 qt5ct
 qt6-wayland
@@ -129,8 +130,8 @@ kimageformats
 tracktion-waveform
 jq
 quicksnip-git
-nyancat
 rclone
 yad
 blender
 gpu-screen-recorder-ui
+quickshell
