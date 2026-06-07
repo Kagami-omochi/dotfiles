@@ -1,20 +1,37 @@
 #!/bin/bash
 
-PACKAGE_LIST="packages.txt"
+set -e
 
-if ! command -v yay &> /dev/null; then
-    echo "Error: yay is not installed. Please install yay first."
+PACKAGES_FILE="packages.txt"
+
+# Check for the existence of packages.txt
+if [ ! -f "$PACKAGES_FILE" ]; then
+    echo "Error: $PACKAGES_FILE not found."
     exit 1
 fi
 
-if [ ! -f "$PACKAGE_LIST" ]; then
-    echo "Error: $PACKAGE_LIST not found."
-    exit 1
+# Check if paru is installed.
+if ! command -v paru &> /dev/null; then
+    echo "paru not found. Starting installation..."
+    
+    sudo pacman -Syu --needed --noconfirm base-devel git
+    BUILD_DIR=$(mktemp -d)
+    trap 'rm -rf "$BUILD_DIR"' EXIT
+
+    git clone https://aur.archlinux.org/paru.git "$BUILD_DIR/paru"
+    (
+        cd "$BUILD_DIR/paru"
+        makepkg -si --noconfirm
+    )
+    
+    echo "The installation of paru is complete."
+else
+    echo "Paru is already installed. Continue..."
 fi
 
-echo "Starting package installation..."
+# Load packages from packages.txt and install them
+echo "Install packages from packages.txt..."
 
-grep -vE '^\s*#|^\s*$' "$PACKAGE_LIST" | xargs -r yay -S --needed --noconfirm
+grep -Ev '^\s*($|#)' "$PACKAGES_FILE" | xargs -r paru -S --needed --noconfirm
 
 echo "Installation complete!"
-```
