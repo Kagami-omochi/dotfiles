@@ -125,3 +125,4 @@ xdg-desktop-portal-hyprland
 yt-dlp
 zam-plugins-lv2
 zip
+git-credential-manager-bin
