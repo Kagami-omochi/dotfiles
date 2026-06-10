@@ -68,8 +68,8 @@ bind = $mainMod, S, togglespecialworkspace, special
 bind = $mainMod SHIFT, S, exec, ~/.config/hypr/scripts/toggle_scratchpad.sh
 
 # Scroll through existing workspaces
-bind = $mainMod, mouse_down, exec, ~/.config/hypr/scripts/cyclews.sh prev
-bind = $mainMod, mouse_up, exec, ~/.config/hypr/scripts/cyclews.sh next
+bind = $mainMod, mouse_down, workspace, m-1
+bind = $mainMod, mouse_up, workspace, m+1
 
 # Move/resize windows
 bindm = $mainMod, mouse:272, movewindow
